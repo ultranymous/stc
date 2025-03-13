@@ -1,19 +1,14 @@
 import {grpc_web, IndexQuery, IndexRegistryOptions, RemoteIndexRegistry, seeds} from "summa-wasm";
-import {tracked_download} from "../../components/download-progress";
 import {Ref, ref, toRaw, UnwrapRef} from "vue";
 import {QueryProcessor} from "./query-processor";
 import {GrpcWebFetchTransport} from "@protobuf-ts/grpcweb-transport";
 
 
 export function get_index_config() {
-    let ipfs_base_path = window.location.pathname ?? ''
-    if (!ipfs_base_path.endsWith('/')) {
-        ipfs_base_path += '/'
-    }
     return {
         index_name: 'stc',
         seed: new seeds.LocalDatabaseSeed(
-            `${ipfs_base_path}data`,
+            `ipns://libstc.cc/data`,
             grpc_web.index_service.CacheConfig.create({cache_size: 512 * 1024 * 1024})
         ),
         query_parser_config: {
@@ -102,28 +97,17 @@ export class IpfsSearchProvider implements SearchProvider {
             this.remote_index_registry = new RemoteIndexRegistry(
                 worker_url,
                 wasm_url,
-                this.registry_options
+                this.registry_options,
+                []
             )
             await this.remote_index_registry.init_guard
             await this.inner_setup()
         })()
-        return await this.init_guard;
+        return await this.init_guard
     }
 
     async inner_setup() {
         try {
-            await tracked_download([wasm_url], this.current_init_status);
-            const rc = await this.index_config.seed.retrieve_remote_engine_config()
-            const meta_response = await fetch(rc.url_template.replace('{file_name}', 'meta.json'))
-            const meta = await meta_response.json()
-            const files = []
-            for (const segment of meta.segments) {
-                if (segment.deletes) {
-                    files.push(rc.url_template.replace('{file_name}', segment.segment_id.replace(/-/g, '') + '.' + segment.deletes.opstamp + '.del'))
-                }
-            }
-            files.push(rc.url_template.replace('{file_name}', 'hotcache.' + meta.opstamp + '.bin'))
-            await tracked_download(files, this.current_init_status);
             await this.add_index(this.index_config);
             this.status.value = SearchProviderStatus.NotChecked;
             this.current_init_status.value = undefined;

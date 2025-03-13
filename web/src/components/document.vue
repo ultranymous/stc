@@ -18,8 +18,6 @@ import {onMounted, ref} from "vue";
 import {Document, Link} from "@/types";
 import DocumentButtons from "@/components/document-buttons.vue";
 import TagsList from "@/components/tags-list.vue";
-import {OPS} from "pdfjs-dist";
-import restore = OPS.restore;
 
 const props = defineProps({
   document: Document,

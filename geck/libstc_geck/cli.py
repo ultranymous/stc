@@ -40,7 +40,6 @@ class StcGeckCli:
     def __init__(
         self,
         ipfs_http_base_url: str,
-        ipfs_api_base_url: str,
         ipfs_data_directory: str,
         grpc_api_endpoint: str,
         index_alias: str,
@@ -48,7 +47,6 @@ class StcGeckCli:
     ):
         self.geck = StcGeck(
             ipfs_http_base_url=ipfs_http_base_url,
-            ipfs_api_base_url=ipfs_api_base_url,
             ipfs_data_directory=ipfs_data_directory,
             grpc_api_endpoint=grpc_api_endpoint,
             index_alias=index_alias,
@@ -217,7 +215,6 @@ class StcGeckCli:
 
 async def stc_geck_cli(
     ipfs_http_base_url: str = "http://127.0.0.1:8080",
-    ipfs_api_base_url: str = "http://127.0.0.1:5001",
     ipfs_data_directory: str = "/ipns/libstc.cc/data",
     grpc_api_endpoint: str = "127.0.0.1:10082",
     index_alias: str = "stc",
@@ -226,7 +223,6 @@ async def stc_geck_cli(
 ):
     """
     :param ipfs_http_base_url: IPFS HTTP Endpoint
-    :param ipfs_api_base_url: IPFS HTTP API Endpoint
     :param ipfs_data_directory: path to the directory with index
     :param grpc_api_endpoint: port used for Summa
     :param index_alias: default index alias
@@ -239,7 +235,6 @@ async def stc_geck_cli(
     )
     stc_geck_client = StcGeckCli(
         ipfs_http_base_url=ipfs_http_base_url,
-        ipfs_api_base_url=ipfs_api_base_url,
         ipfs_data_directory=ipfs_data_directory,
         grpc_api_endpoint=grpc_api_endpoint,
         index_alias=index_alias,

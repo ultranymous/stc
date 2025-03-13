@@ -11,11 +11,7 @@ export default defineConfig(({mode}) => {
         server: {
             proxy: {
                 '/data': `${IPFS_URL}/ipns/libstc.cc`,
-                '/repo': {
-                    target: 'https://repo-libstc-cc.ipns.dweb.link',
-                    changeOrigin: true,
-                    rewrite: (path) => path.replace(/^\/repo/, ''),
-                  },
+                '/repo': `${IPFS_URL}/ipns/libstc.cc`,
             },
         },
         plugins: [vue(), VitePWA({

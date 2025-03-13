@@ -25,7 +25,6 @@ Putting everything to IPFS allows you to open STC in your browser or on your ser
 ## Components
 
 - [GECK](/geck) is a Python library and Bash tool for setting up and interacting with STC programmatically
-- [Cybrex AI](/cybrex) library pairs STC with AI tools such as OpenAI or free LLM for processing stored data
 - [Telegram Bot](/bot) allows users to access STC via Telegram, one of the most popular messaging platforms.
 
 ## Roadmap

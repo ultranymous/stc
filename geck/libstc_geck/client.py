@@ -89,7 +89,6 @@ class StcGeck(AioThing):
         Constructs GECK that may be used to access STC dataset.
 
         :param ipfs_http_base_url: IPFS HTTP base url, i.e `http://127.0.0.1:8080`
-        :param ipfs_api_base_url: IPFS API base url, i.e `http://127.0.0.1:5001`
         :param ipfs_data_directory: path to the directory with indices
         :param grpc_api_endpoint:
             endpoint for setting up Summa. If there is Summa listening on the port before launching, then

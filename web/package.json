@@ -9,7 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@helia/block-brokers": "^4.0.4",
+    "@helia/http": "^2.0.4",
+    "@helia/routers": "^3.0.0",
+    "@helia/verified-fetch": "^2.5.5",
     "@heroicons/vue": "^2.2.0",
+    "@noble/hashes": "^1.7.1",
     "@protobuf-ts/grpcweb-transport": "^2.9.4",
     "@typescript-eslint/parser": "^7.18.0",
     "@vueuse/rxjs": "^10.11.1",
@@ -19,9 +24,10 @@
     "flowbite": "^2.5.2",
     "hammerjs": "^2.0.8",
     "mathpix-markdown-it": "^1.3.11",
+    "multiformats": "^13.3.2",
     "pdfjs-dist": "^4.10.38",
     "remove-markdown": "^0.5.5",
-    "summa-wasm": "^0.137.2",
+    "summa-wasm": "^0.138.18",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },

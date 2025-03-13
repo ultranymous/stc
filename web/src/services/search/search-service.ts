@@ -5,11 +5,9 @@ import {
 } from 'summa-wasm'
 import {
     IpfsSearchProvider,
-    RemoteSearchProvider,
     type SearchProvider, SearchProviderStatus,
 } from "./search-provider";
 import {ref} from "vue";
-import {utils} from "summa-wasm";
 
 export class SearchService {
     search_providers: Array<SearchProvider>;

@@ -1,8 +1,8 @@
 bash scripts/build.sh
 
 DATA_CID=bafyb4ihts2f5gsijugesi6xpemc6qmicbddrqi72xxdlogx3hnp3722dau
-DOIS_CID=bafyb4idlbsipukujj5qsw25ajb5wmq542bapn4j7x73wuj4okr5y3ylsqe
-REPO_CID=bafyb4ifsr2hvzhkedbcr7iy4iandmshi5m7g7s4cd6m475woxvbfcqab74
+DOIS_CID=bafyb4iavcvzqzamnr7xa5fmanlc274rsk3iydgoxownvvb2ocbinbj3yay
+REPO_CID=bafyb4idojhtykgtzzglaycyhe23f7ebn4oql3kdwp5tdmct2m4a374s6yu
 
 echo Copying site to IPFS...
 DIST_CID=$(ipfs --api $API_ADDR add --pin -Q -r --hash=blake3 dist)

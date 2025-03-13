@@ -45,7 +45,7 @@ import {db} from "@/database.ts";
 
 const props = defineProps({
   document: undefined as Document,
-  links: [] as Link[],
+  links: Array<Link>,
 });
 const maybe_bookmark = ref(undefined);
 
